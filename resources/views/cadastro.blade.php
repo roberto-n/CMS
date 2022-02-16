@@ -1,24 +1,24 @@
-@extends ( ' layouts.basico ' )
+@extends('layouts.basico')
 
 
-@section ( ' titulo ' , ' cadastro '  )
+@section('titulo', 'cadastro' )
 
-@seção ( ' conteúdo ' )
-< classe div  = " contêiner " >
-    < form  action = " {{ route ( ' pet.store ' ) } } "  método = " POST " >
+@section('conteúdo')
+<classe div="contêiner">
+    <form action =""método ="POST">
         @csrf
-        < label  for = " nome " >Nome animal </ label >
-        < tipo de entrada  = " texto " nome = " nome  " > </ input >
-<br>         _ _
-        < label  for = " idade " >idade</ label >
-        < input  type = " text "  name = " idade " ></ input >
-        <br>         _ _
-        < label  for = " email" >email</ label >
-        < input  type = " text "  name = " email " ></ input >
-<br>         _ _
-        < label  for = " contato " >contato</ label >
-        < tipo de entrada  = " tel " nome = " contato " ></  input >
-        < tipo de botão  = " enviar " value = " Enviar " >cadastrar</  button >
-    </ formulário >
-</ div >
+        <label  for = " nome " >Nome  </ label >
+        <input type="text" nome = " nome  " > </input>
+<br>         
+        <label  for = " idade " >Idade</ label >
+        <input  type = " text "  name = " idade " ></input>
+        <br>        
+        <label  for = " email" >E-mail</label >
+        <input  type = " text "  name = " email " ></input>
+<br>         
+        <label  for = " contato " >Telefone</label>
+        <input type="tel" nome = " contato " ></input>
+        <button type="submit" value="Submit">Cadastrar</button>
+  </form>
+</div>
 @endsection

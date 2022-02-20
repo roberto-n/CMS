@@ -16,6 +16,11 @@ class CreateCadastroModelsTable extends Migration
         Schema::create('cadastro_models', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('nome');
+            $table->integer('idade');
+            $table->string('email');
+            $table->integer('contato');
+
         });
     }
 

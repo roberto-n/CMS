@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CadastroModel;
 use Illuminate\Http\Request;
 
 class CadastroController extends Controller
@@ -34,7 +35,8 @@ class CadastroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       CadastroModel::create($request->all());
+       return view('dowloadpdf');
     }
 
     /**

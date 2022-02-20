@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\DowloadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,10 @@ Route::get('/', function () {
 });
 
 route::resource('cadastro', CadastroController::class);
+
+route::get('/dowloadpdf',[DowloadController::class,'dowloadpdf'])->name('dowloadpdf');
+route::get('/dowload',[DowloadController::class,'dowload'])->name('dowload');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

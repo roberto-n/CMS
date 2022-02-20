@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class DowloadController extends Controller
 {
    /**
-     * Display a listing of the resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -17,7 +17,7 @@ class DowloadController extends Controller
     }
 
        /**
-     * Display a listing of the resource.
+     *
      *
      * @return \Illuminate\Http\Response
      */

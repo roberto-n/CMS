@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\DowloadController;
+use App\Http\Controllers\AdmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,14 @@ Route::get('/', function () {
 
 route::resource('cadastro', CadastroController::class);
 
-route::get('/dowloadpdf',[DowloadController::class,'dowloadpdf'])->name('dowloadpdf');
-route::get('/dowload',[DowloadController::class,'dowload'])->name('dowload');
+route::get('dowloadpdf',[DowloadController::class,'dowloadpdf'])->name('dowloadpdf');
+route::get('dowload',[DowloadController::class,'dowload'])->name('dowload');
 
-Route::get('/dashboard', function () {
+route::get('adm',[AdmController::class,'index'])->name('adm');
+route::post('adm/edit',[AdmController::class,'store'])->name('edit');
+route::get('adm/relatorio',[AdmController::class,'relatorio'])->name('relatorio');
+
+Route::get('dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 

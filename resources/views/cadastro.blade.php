@@ -4,6 +4,10 @@
 @section('titulo', 'cadastro' )
 
 @section('conteúdo')
+
+<img src="{{asset('img.jpg')}}">
+<p></p>
+
 <classe div="contêiner">
     <form action =""método ="POST">
         @csrf

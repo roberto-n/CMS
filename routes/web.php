@@ -26,7 +26,7 @@ route::get('dowloadpdf',[DowloadController::class,'dowloadpdf'])->name('dowloadp
 route::get('dowload',[DowloadController::class,'dowload'])->name('dowload');
 
 route::get('adm',[AdmController::class,'index'])->name('adm');
-route::post('adm/edit',[AdmController::class,'store'])->name('edit');
+route::post('adm/salvar',[AdmController::class,'store'])->name('salvar');
 route::get('adm/relatorio',[AdmController::class,'relatorio'])->name('relatorio');
 
 Route::get('dashboard', function () {

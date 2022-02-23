@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Adm;
+use App\Exports\CadastroExport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class AdmController extends Controller
 {
@@ -24,21 +28,34 @@ class AdmController extends Controller
      */
     public function store(Request $request)
     {
-       
-       $validatedData = $request->validate([
-        'img' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        
+        $validatedData = $request->validate([
+            'img' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+    
+           ]);
+        if($request->hasFile('img')&& $request->file('img')->isValid()){
+            
+            $titulo=$request->nameimg.time().'.'.$request->img->extension(); ;
+            $path=$request->img->move(public_path('images'), $titulo);
+            $store = new Adm;
+     
+            $store->titulo=$request->titulo;
+            $store->nomeimg=$request->nomeimg;
+            $store->path=$path;
+     
+            
+            $store->save();
 
-       ]);
-       
-       $path = $request->file('img')->store('public/images');
-       $store = new Adm;
 
-       $store->titulo=$request->titulo;
-       $store->nomeimg=$request->titulo;
-       $store->$path;
+        }else{
+            $store = new Adm;
+            $store->titulo=$request->titulo;
+            $store->save();
+            return view('welcome');
 
+        }
+      
        
-       $store->save();
        return view('welcome');
     }
     /**
@@ -48,6 +65,6 @@ class AdmController extends Controller
      */
     public function relatorio()
     {
-        return view('dowload');
+        return Excel::download(new CadastroExport, 'cadastro.xlsx');
     }
 }

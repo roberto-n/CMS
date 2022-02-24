@@ -5,8 +5,9 @@
 
 @section('conteúdo')
 
-<img src="{{asset('img.jpg')}}">
-<p></p>
+
+<img src="/images/{{ viewinfo->nomeimg }}.jpg">
+<p>{{viewinfo->titulo}}</p>
 
 <classe div="contêiner">
     <form action =""método ="POST">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CadastroModel;
 use Illuminate\Http\Request;
+use App\Models\Adm;
 
 class CadastroController extends Controller
 {
@@ -14,7 +15,9 @@ class CadastroController extends Controller
      */
     public function index()
     {
-        return view('cadastro');
+        $viewinfo=Adm::orderBy('created_at', 'desc')->first();
+        
+        return view('cadastro',compact('viewinfo'));
     }
 
     /**

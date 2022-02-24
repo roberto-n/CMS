@@ -4,10 +4,12 @@
 @section('titulo', 'adm' )
 
 @section('conteúdo')
+
+
 <p>Titulo atual:</p>
-<p></p>
+<p>{{viewinfo->titulo}}</p>
 <p>imagem atual:</p>
-<img>
+<img src="/images/{{ viewinfo->nomeimg }}.jpg">
 <div>
 <form action="{{ route('salvar') }}" method="POST" enctype="multipart/form-data">
 @csrf

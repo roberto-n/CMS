@@ -18,7 +18,10 @@ class AdmController extends Controller
      */
     public function index()
     {
-        return view('adm');
+        $viewinfo=Adm::orderBy('created_at', 'desc')->first();
+        
+        return view('adm',compact('viewinfo'));
+        
     }
      /**
      * 
@@ -35,7 +38,7 @@ class AdmController extends Controller
            ]);
         if($request->hasFile('img')&& $request->file('img')->isValid()){
             
-            $titulo=$request->nameimg.time().'.'.$request->img->extension(); ;
+            $titulo=$request->nomeimg.'.'.$request->img->extension(); ;
             $path=$request->img->move(public_path('images'), $titulo);
             $store = new Adm;
      

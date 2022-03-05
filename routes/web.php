@@ -25,9 +25,9 @@ route::resource('cadastro', CadastroController::class);
 route::get('dowloadpdf',[DowloadController::class,'dowloadpdf'])->name('dowloadpdf');
 route::get('dowload',[DowloadController::class,'dowload'])->name('dowload');
 
-route::get('adm',[AdmController::class,'index'])->name('adm');
-route::post('adm/salvar',[AdmController::class,'store'])->name('salvar');
-route::get('adm/relatorio',[AdmController::class,'relatorio'])->name('relatorio');
+route::get('adm',[AdmController::class,'index'])->middleware(['auth'])->name('adm');
+route::post('adm/salvar',[AdmController::class,'store'])->middleware(['auth'])->name('salvar');
+route::get('adm/relatorio',[AdmController::class,'relatorio'])->middleware(['auth'])->name('relatorio');
 
 Route::get('dashboard', function () {
     return view('dashboard');

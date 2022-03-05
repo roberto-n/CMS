@@ -6,8 +6,8 @@
 @section('conteúdo')
 
 @if($viewinfo)
-<img src="/images/{{ viewinfo->nomeimg }}.jpg">
-<p>{{viewinfo->titulo}}</p>
+<img src="/images/{{ $viewinfo->nomeimg }}.jpg">
+<p>{{$viewinfo->titulo}}</p>
 @else
 @endif
 <classe div="contêiner">

@@ -8,13 +8,13 @@
 
 <p>Titulo atual:</p>
 @if($viewinfo)
-<p>{{viewinfo->titulo}}</p>
+<p>{{$viewinfo->titulo}}</p>
 @else
 <p></p>
 @endif
 <p>imagem atual:</p>
 @if($viewinfo)
-<img src="/images/{{ viewinfo->nomeimg }}.jpg">
+<img src="/images/{{ $viewinfo->nomeimg }}.jpg">
 @else
 <img>
 @endif

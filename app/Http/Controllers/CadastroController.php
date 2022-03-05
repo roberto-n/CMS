@@ -38,6 +38,15 @@ class CadastroController extends Controller
      */
     public function store(Request $request)
     {
+       
+
+        $request->validate([
+            'nome' => 'required',
+            'idade' => 'required',
+            'email' => 'required',
+            'contato' => 'required',
+        ]);
+
        CadastroModel::create($request->all());
        return view('dowloadpdf');
     }

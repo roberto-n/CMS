@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\DowloadController;
 use App\Http\Controllers\AdmController;
+use App\Http\Controllers\EmailController;
+use App\Mail\pdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +35,5 @@ Route::get('dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+route::get('envio_email',[EmailController::class,'enviaemail'])->name('email');
 require __DIR__.'/auth.php';

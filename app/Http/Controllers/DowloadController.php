@@ -23,6 +23,7 @@ class DowloadController extends Controller
      */
     public function dowload()
     {
-        return response()->dowload("storage/private/pdf.pdf");
+        
+        return response()->download("storage/private/pdf.pdf");
     }
 }
